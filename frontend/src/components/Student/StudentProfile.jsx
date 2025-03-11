@@ -1,0 +1,267 @@
+import { useState, useEffect } from "react";
+import styled from "styled-components";
+
+// Styled components for styling
+const MainDashboard = styled.div`
+  flex: 1;
+  padding: 20px;
+  width: -webkit-fill-available;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #cecece;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+  }
+`;
+
+// Styled components
+const Container = styled.div`
+  /* height: 100%; */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f4f7fc;
+  
+`;
+
+const AdmissionLetterContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  margin-top: 30px;
+`;
+
+const Title = styled.h2`
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-align: center;
+`;
+
+const Section = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three columns */
+  gap: 20px;
+  margin-top: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* One column for small screens */
+  }
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+const Label = styled.p`
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin: 0;
+`;
+
+const Value = styled.p`
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+`;
+
+const Hr = styled.hr`
+  border: 0;
+  border-top: 1px solid black;
+  margin: 10px 0;
+`;
+
+const PhotoContainer = styled.div`
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
+const Photo = styled.img`
+  /* width: 115px; */
+  height: 110px;
+  background-color: gray;
+  /* border-radius: 50%; */
+`;
+
+const StudentProfile = () => {
+  const [student, setStudent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchStudentData = async () => {
+      const studentId = localStorage.getItem("Id"); // Assuming Student ID is stored in localStorage
+
+      if (studentId) {
+        try {
+          const response = await fetch(`http://localhost:8000/student/get/${studentId}`);
+          if (!response.ok) {
+            throw new Error('Student not found');
+          }
+          const data = await response.json();
+          setStudent(data); // Set student data to state
+        } catch (error) {
+          setError(error.message); // Set error message
+        } finally {
+          setLoading(false); // Set loading to false when done
+        }
+      }
+    };
+
+    fetchStudentData();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <MainDashboard>
+
+      <Container>
+        <AdmissionLetterContainer>
+          <PhotoContainer>
+            {/* Assuming you have a field `student?.Image` for the student's photo */}
+            <Photo src={`http://localhost:8000/uploads/${student?.Image}`} alt="Student" />
+          </PhotoContainer>
+
+          {/* Student Details */}
+          <Section>
+            <div>
+              <Label>Name:</Label>
+              <Value>{student?.Name || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Student ID:</Label>
+              <Value>{student?.StudentID || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Registration Number:</Label>
+              <Value>{student?.RegistrationNumber || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Date of Admission:</Label>
+              <Value>{student?.DateofAdmission || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Gender:</Label>
+              <Value>{student?.Gender || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+
+              <Label>Aadhaar Number:</Label>
+              <Value>{student?.AadhaarNumber || "Not available"}</Value><Hr />
+            </div>
+            <div>
+              <Label>Franchise ID:</Label>
+              <Value>{student?.FranchiseId || "Not available"}</Value><Hr />
+            </div>
+            <div>
+              <Label>Branch:</Label>
+              <Value>{student?.Branch || "Not available"}</Value><Hr />
+            </div>
+            <div>
+              <Label>Date of Birth:</Label>
+              <Value>{student?.DOB || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Mobile No:</Label>
+              <Value>{student?.MobileNo || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Alter Mobile No:</Label>
+              <Value>{student?.AlterMobileNo || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Address:</Label>
+              <Value>{student?.Address || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>Country:</Label>
+              <Value>{student?.Country || "Not available"}</Value><Hr />
+            </div>
+
+            <div>
+              <Label>State:</Label>
+              <Value>{student?.State || "Not available"}</Value><Hr />
+            </div>
+            <div>
+              <Label>Pincode:</Label>
+              <Value>{student?.Pincode || "Not available"}</Value><Hr />
+            </div>
+            <div>
+              <Label>Area:</Label>
+              <Value>{student?.Area || "Not available"}</Value><Hr />
+            </div>
+            <div>
+              <Label>Qualification:</Label>
+              <Value>{student?.Qualification || "Not available"}</Value><Hr />
+            </div>
+
+            {student?.GuardianDetails && student.GuardianDetails.length > 0 && (
+              <>
+                {student.GuardianDetails.map((guardian, index) => (
+                  <div key={index}>
+                    <h3>Guardian Details</h3>
+                    <div>
+                      <Label>Guardian Name:</Label>
+                      <Value>{guardian?.GName || "Not available"}</Value><Hr />
+                    </div>
+                    <div>
+                      <Label>Guardian Mobile No:</Label>
+                      <Value>{guardian?.GMobileNo || "Not available"}</Value><Hr />
+                    </div>
+                    <div>
+                      <Label>Guardian Occupation:</Label>
+                      <Value>{guardian?.GOccupation || "Not available"}</Value><Hr />
+                    </div>
+
+                  </div>
+                ))}
+              </>
+            )}
+          </Section>
+        </AdmissionLetterContainer>
+      </Container>
+    </MainDashboard>
+  );
+};
+
+export default StudentProfile;

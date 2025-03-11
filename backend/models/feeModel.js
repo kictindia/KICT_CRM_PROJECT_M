@@ -1,0 +1,71 @@
+const mongoose = require("mongoose");
+
+const feeModel = new mongoose.Schema({
+    StudentId:{
+        type:String,
+        required:true
+    },
+    CourseId:{
+        type:String,
+        required:true
+    },
+    StudentName:{
+        type:String,
+        required:true
+    },
+    CourseName:{
+        type:String,
+        required:true
+    },
+    TotalFee:{
+        type:Number,
+        required:true
+    },
+    PaidFee:{
+        type:Number,
+        required:true
+    },
+    Balance:{
+        type:Number,
+        required:true
+    },
+    FranchiseId:{
+        type:String,
+        required:true
+    },
+    FranchiseName:{
+        type:String,
+        required:true
+    },
+    FeeSlot:[{
+        Amount:{
+            type:Number
+        },
+        Date:{
+            type:String
+        },
+        Status:{
+            type:String
+        },
+        PaidAmount:{
+            type:Number
+        }
+    }],
+    Installment:[{
+        Date:{
+            type:String,
+        },
+        Time:{
+            type:String,
+        },
+        Amount:{
+            type:Number,
+        },
+        PaymentMethod:{
+            type:String,
+        }
+    }]
+});
+
+const Fee = mongoose.model("Fee", feeModel);
+module.exports = Fee;
