@@ -223,7 +223,7 @@ const EditEnquiry = () => {
     useEffect(() => {
         const fetchFranchises = async () => {
             try {
-                const response = await fetch("http://localhost:8000/franchise/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
                 const data = await response.json();
                 setFranchises(data);
             } catch (error) {
@@ -236,7 +236,7 @@ const EditEnquiry = () => {
     useEffect(() => {
         const fetchBatch = async () => {
             try {
-                const response = await fetch("http://localhost:8000/batch/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/batch/all");
                 const data = await response.json();
 
                 if (data && Array.isArray(data)) {
@@ -266,7 +266,7 @@ const EditEnquiry = () => {
         const fetchCourses = async () => {
             if (enquiryData.FranchiseId) {
                 try {
-                    const response = await fetch(`http://localhost:8000/course/all`);
+                    const response = await fetch(`https://franchiseapi.kictindia.com/course/all`);
                     const data = await response.json();
                     var franData = franchises.find(value => value.FranchiseID == enquiryData.FranchiseId);
                     var filterCourse = data.filter(value => value.FranchiseId == "All" || value.FranchiseId == enquiryData.FranchiseId || value.State == franData.State);
@@ -285,7 +285,7 @@ const EditEnquiry = () => {
     useEffect(() => {
         const fetchEnquiryData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/enquiry/get/${id}`);
+                const response = await axios.get(`https://franchiseapi.kictindia.com/enquiry/get/${id}`);
                 console.log(response.data); // Populate the form with the enquiry data
                 setEnquiryData(response.data); // Populate the form with the enquiry data
             } catch (error) {
@@ -343,7 +343,7 @@ const EditEnquiry = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8000/enquiry/update/${id}`, enquiryData);
+            const response = await axios.put(`https://franchiseapi.kictindia.com/enquiry/update/${id}`, enquiryData);
             alert(response.data.message);
         } catch (error) {
             alert('Failed to update enquiry.');

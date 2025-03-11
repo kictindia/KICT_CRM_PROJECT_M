@@ -109,7 +109,7 @@ const EditStudent = () => {
     console.log(location.state.StudentID)
     const fetchStudent = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/student/get/${location.state.StudentID}`);
+        const response = await fetch(`https://franchiseapi.kictindia.com/student/get/${location.state.StudentID}`);
         const data = await response.json();
         console.log(data)
         setFormData(data)
@@ -126,7 +126,7 @@ const EditStudent = () => {
 
     const fetchFranchises = async () => {
       try {
-        const response = await fetch("http://localhost:8000/franchise/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
         const data = await response.json();
         setAllFranchises(data);
         if (temp == "Franchise") {
@@ -160,7 +160,7 @@ const EditStudent = () => {
   useEffect(() => {
       const fetchCourse = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/course/all`);
+          const response = await fetch(`https://franchiseapi.kictindia.com/course/all`);
           const data = await response.json();
           var franData = allFranchises.find(value => value.FranchiseID == formData.FranchiseId);
           var filterCourse = data.filter(value => value.FranchiseId == "All" || value.FranchiseId == formData.FranchiseId || value.State == franData.State);
@@ -187,7 +187,7 @@ const EditStudent = () => {
   useEffect(() => {
     const fetchBatch = async () => {
       try {
-        const response = await fetch("http://localhost:8000/batch/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/batch/all");
         const data = await response.json();
 
         if (data && Array.isArray(data)) {
@@ -390,7 +390,7 @@ const EditStudent = () => {
     }
     console.log(formData);
     try {
-      const response = await axios.put(`http://localhost:8000/student/update/${formData.StudentID}`, data, {
+      const response = await axios.put(`https://franchiseapi.kictindia.com/student/update/${formData.StudentID}`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

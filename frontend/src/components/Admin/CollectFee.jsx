@@ -68,7 +68,7 @@ const FeeDetailsTable = () => {
     var role = localStorage.getItem("Role");
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/fee/all'); // Replace with your actual API URL
+        const response = await fetch('https://franchiseapi.kictindia.com/fee/all'); // Replace with your actual API URL
         const data = await response.json();
         if (role == "Franchise") {
           const id = localStorage.getItem("Id");

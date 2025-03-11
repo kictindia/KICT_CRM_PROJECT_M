@@ -188,7 +188,7 @@ const CourseDetails = () => {
   useEffect(() => {
     // Fetch course details by courseId
     axios
-      .get(`http://localhost:8000/course/get/${courseId}`)
+      .get(`https://franchiseapi.kictindia.com/course/get/${courseId}`)
       .then((response) => {
         setCourse(response.data); // Set the fetched course data
         setLoading(false);
@@ -202,7 +202,7 @@ const CourseDetails = () => {
   useEffect(() => {
     // Fetch course details by courseId
     axios
-      .get(`http://localhost:8000/course/get/${courseId}`)
+      .get(`https://franchiseapi.kictindia.com/course/get/${courseId}`)
       .then((response) => {
         setCourse(response.data); // Set the fetched course data
         setLoading(false);

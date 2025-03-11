@@ -79,7 +79,7 @@ const AllSalary = () => {
             try {
                 const role = localStorage.getItem("Role");
                 setLoading(true);
-                const response = await fetch("http://localhost:8000/salary/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/salary/all");
                 const data = await response.json();
                 let newData = data.salaries;
 
@@ -277,7 +277,7 @@ const AllSalary = () => {
         try {
             const updatedSalary = { ...salary, Status: "Paid" };
             const response = await axios.put(
-                `http://localhost:8000/salary/update/${salary._id}`,
+                `https://franchiseapi.kictindia.com/salary/update/${salary._id}`,
                 updatedSalary
             );
 

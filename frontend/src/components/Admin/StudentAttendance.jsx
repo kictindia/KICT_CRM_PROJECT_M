@@ -97,7 +97,7 @@ const StudentAttendance = () => {
 
         const fetchFranchises = async () => {
             try {
-                const response = await fetch("http://localhost:8000/franchise/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
                 const data = await response.json();
                 if (temp == "Franchise") {
                     var id = localStorage.getItem("Id");
@@ -125,7 +125,7 @@ const StudentAttendance = () => {
         if (selectedFranchise) {
             const fetchBatches = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:8000/batch/get/franchise/${selectedFranchise}`);
+                    const response = await axios.get(`https://franchiseapi.kictindia.com/batch/get/franchise/${selectedFranchise}`);
                     console.log(response.data)
                     setBatches(response.data.Batch);  // Assuming the data returns batches as an array
                 } catch (error) {
@@ -251,7 +251,7 @@ const StudentAttendance = () => {
 
         try {
             // Sending the request to the backend
-            const response = await axios.post('http://localhost:8000/student-attendance/add', attendanceToSubmit);
+            const response = await axios.post('https://franchiseapi.kictindia.com/student-attendance/add', attendanceToSubmit);
 
             // Success - Show message and reset the form
             toast.success("Attendance submitted successfully!");

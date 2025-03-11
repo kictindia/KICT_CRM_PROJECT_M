@@ -81,7 +81,7 @@ const AbsentTeacher = () => {
                     return;
                 }
 
-                const response = await fetch('http://localhost:8000/staff-attendance/all');
+                const response = await fetch('https://franchiseapi.kictindia.com/staff-attendance/all');
                 const data = await response.json();
                 const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
@@ -102,7 +102,7 @@ const AbsentTeacher = () => {
                 // Fetch additional staff details using TeacherId
                 const staffDetails = await Promise.all(absentStaffList.map(async (staff) => {
                     const teacherId = staff.TeacherId;
-                    const employeeResponse = await fetch(`http://localhost:8000/teacher/get/${teacherId}`);
+                    const employeeResponse = await fetch(`https://franchiseapi.kictindia.com/teacher/get/${teacherId}`);
                     const employeeData = await employeeResponse.json();
                     return {
                         id: employeeData._id,
@@ -144,7 +144,7 @@ const AbsentTeacher = () => {
                 <TableBody>
                     {absentStaff.map((staff, index) => (
                         <tr key={index}>
-                            <BodyCell><Photo src={`http://localhost:8000/uploads/${staff?.image}`} alt="Staff" /></BodyCell>
+                            <BodyCell><Photo src={`https://franchiseapi.kictindia.com/uploads/${staff?.image}`} alt="Staff" /></BodyCell>
                             <BodyCell>{staff.name}</BodyCell>
                             <BodyCell>{staff.roleClass}</BodyCell>
                         </tr>

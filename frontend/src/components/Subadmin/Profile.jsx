@@ -125,7 +125,7 @@ const Profile = () => {
         if (id) {
             const fetchStaff = async () => {
                 try {
-                    const response = await fetch(`http://localhost:8000/franchise/get/${id}`);
+                    const response = await fetch(`https://franchiseapi.kictindia.com/franchise/get/${id}`);
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
                     }
@@ -221,7 +221,7 @@ const Profile = () => {
                             <Label>QR Code:</Label>
                             <PhotoContainer>
                                 {/* Assuming you have a field `staff?.Image` for the photo */}
-                                <Photo src={`http://localhost:8000/uploads/${staff?.UPICode}`} alt="Staff" />
+                                <Photo src={`https://franchiseapi.kictindia.com/uploads/${staff?.UPICode}`} alt="Staff" />
                             </PhotoContainer>
                         </Column>
                     </Section>

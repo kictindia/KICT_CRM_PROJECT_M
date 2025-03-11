@@ -113,7 +113,7 @@ const Allcourse = () => {
   // Fetch courses from the API
   useEffect(() => {
     axios
-      .get("http://localhost:8000/course/all")
+      .get("https://franchiseapi.kictindia.com/course/all")
       .then((response) => {
         setCourses(response.data); // Set the courses data
         setLoading(false);
@@ -154,7 +154,7 @@ const Allcourse = () => {
   // Confirm deletion and delete the course
   const confirmDelete = () => {
     axios
-      .delete(`http://localhost:8000/course/delete/${courseToDelete}`)
+      .delete(`https://franchiseapi.kictindia.com/course/delete/${courseToDelete}`)
       .then((response) => {
         // Remove the deleted course from the UI without reloading the page
         setCourses(courses.filter((course) => course.CourseId !== courseToDelete));

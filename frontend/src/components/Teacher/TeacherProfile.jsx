@@ -126,7 +126,7 @@ const TeacherProfile = () => {
 
       if (teacherId) {
         try {
-          const response = await fetch(`http://localhost:8000/teacher/get/${teacherId}`);
+          const response = await fetch(`https://franchiseapi.kictindia.com/teacher/get/${teacherId}`);
           if (!response.ok) {
             throw new Error('Teacher not found');
           }
@@ -153,7 +153,7 @@ const TeacherProfile = () => {
         <AdmissionLetterContainer>
           <PhotoContainer>
             {/* Assuming you have a field `teacher?.UPICode` for the teacher's photo */}
-            <Photo src={`http://localhost:8000/uploads/${teacher?.Image}`} alt="Teacher" />
+            <Photo src={`https://franchiseapi.kictindia.com/uploads/${teacher?.Image}`} alt="Teacher" />
           </PhotoContainer>
 
           {/* Teacher Details */}

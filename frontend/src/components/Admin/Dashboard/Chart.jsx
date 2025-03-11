@@ -73,7 +73,7 @@ const DynamicChart = () => {
     // Fetch the fee data from the API
     const fetchFeeData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/fee/all");
+        const response = await axios.get("https://franchiseapi.kictindia.com/fee/all");
 
         // Calculate totalFee, remainingFee, and paidFee by iterating over the response data
         const total = response.data.reduce(
@@ -264,7 +264,7 @@ export default DynamicChart;
 //     // Fetch the fee data from the API
 //     const fetchFeeData = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:8000/fee/all");
+//         const response = await axios.get("https://franchiseapi.kictindia.com/fee/all");
 
 //         // Calculate totalFee, remainingFee, and paidFee by iterating over the response data
 //         const total = response.data.reduce(

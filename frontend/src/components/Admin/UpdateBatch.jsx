@@ -115,7 +115,7 @@ const UpdateBatch = ({ batchId = "674fdb1fb16702c3bc6ab872" }) => {
     useEffect(() => {
         var id = localStorage.getItem("Id");
         axios
-            .get(`http://localhost:8000/batch/get/franchise/${id}`)
+            .get(`https://franchiseapi.kictindia.com/batch/get/franchise/${id}`)
             .then((response) => {
                 setBatchData(response.data);
                 console.log(response.data);
@@ -220,7 +220,7 @@ const UpdateBatch = ({ batchId = "674fdb1fb16702c3bc6ab872" }) => {
         e.preventDefault();
 
         axios
-            .put(`http://localhost:8000/batch/update/${updateBatchId}`, batchData)
+            .put(`https://franchiseapi.kictindia.com/batch/update/${updateBatchId}`, batchData)
             .then((response) => {
                 console.log("Batch updated successfully:", response.data);
             })

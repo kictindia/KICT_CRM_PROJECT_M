@@ -124,7 +124,7 @@ const ViewPendingStudent = () => {
     if (location.state && location.state.Id) {
       const fetchStudent = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/pending-student/get/${location.state.Id}`);
+          const response = await fetch(`https://franchiseapi.kictindia.com/pending-student/get/${location.state.Id}`);
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
@@ -154,7 +154,7 @@ const ViewPendingStudent = () => {
         <AdmissionLetterContainer>
           <PhotoContainer>
             {/* Assuming you have a field `student?.Image` for the photo */}
-            <Photo src={`http://localhost:8000/uploads/${student?.Image}`} alt="Student" />
+            <Photo src={`https://franchiseapi.kictindia.com/uploads/${student?.Image}`} alt="Student" />
           </PhotoContainer>
 
           <Section>

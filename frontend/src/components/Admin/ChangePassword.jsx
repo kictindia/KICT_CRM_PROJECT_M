@@ -96,7 +96,7 @@ const ChangePassword = () => {
 
     try {
       const userId = localStorage.getItem("Id");
-      const response = await axios.put(`http://localhost:8000/user/${userId}/change-password`, {
+      const response = await axios.put(`https://franchiseapi.kictindia.com/user/${userId}/change-password`, {
         currentPassword,
         newPassword,
       });

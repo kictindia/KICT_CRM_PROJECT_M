@@ -220,7 +220,7 @@ const MyCourses = () => {
   // Fetch courses data from the API
   const fetchCourses = async () => {
     try {
-      const response = await fetch('http://localhost:8000/course/all');
+      const response = await fetch('https://franchiseapi.kictindia.com/course/all');
       const data = await response.json();
       var Id = localStorage.getItem("Id");
       var franData = JSON.parse(localStorage.getItem("FranchiseData"))
@@ -228,7 +228,7 @@ const MyCourses = () => {
       console.log(filterData)
       console.log(franData.State)
 
-      // const response1 = await fetch(`http://localhost:8000/course-franchise/get/${localStorage.getItem('Id')}`);
+      // const response1 = await fetch(`https://franchiseapi.kictindia.com/course-franchise/get/${localStorage.getItem('Id')}`);
       // const data1 = await response1.json();
       // var addedCoursesFromStorage = data1?.CourseData?.map(val => val.CourseId);
       // setAddedCourses(addedCoursesFromStorage)
@@ -306,7 +306,7 @@ const MyCourses = () => {
       };
 
       // Send the request to the backend to add the course
-      const response = await fetch('http://localhost:8000/course-franchise/add', {
+      const response = await fetch('https://franchiseapi.kictindia.com/course-franchise/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

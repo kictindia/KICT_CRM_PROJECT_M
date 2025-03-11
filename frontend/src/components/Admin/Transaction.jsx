@@ -9,7 +9,7 @@ const Transaction = () => {
 
     const fetchTransactions = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/fee/all");
+            const response = await axios.get("https://franchiseapi.kictindia.com/fee/all");
             var temp = response.data.flatMap((data) => {
                 return data?.Installment?.map((val) => {
                     return {

@@ -194,7 +194,7 @@ const SubAdminDashboard = () => {
     try {
       // Fetching student count filtered by franchiseId
       const studentResponse = await axios.get(
-        "http://localhost:8000/student/all",
+        "https://franchiseapi.kictindia.com/student/all",
         {
           params: { franchiseId },
         }
@@ -202,7 +202,7 @@ const SubAdminDashboard = () => {
 
       // Fetching teacher count filtered by franchiseId
       const teacherResponse = await axios.get(
-        "http://localhost:8000/teacher/all",
+        "https://franchiseapi.kictindia.com/teacher/all",
         {
           params: { franchiseId },
         }

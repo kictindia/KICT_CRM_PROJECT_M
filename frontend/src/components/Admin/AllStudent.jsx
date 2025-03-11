@@ -133,7 +133,7 @@ const AllStudent = () => {
     setRole(temp);
     const fetchStudents = async () => {
       try {
-        const response = await fetch("http://localhost:8000/student/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/student/all");
         const data = await response.json();
         if (temp === "Franchise") {
           setStudents(data.filter((student) => student.FranchiseId === localStorage.getItem("Id")));
@@ -187,7 +187,7 @@ const AllStudent = () => {
 
   const handleDelete = async (student) => {
     try {
-      const response = await fetch(`http://localhost:8000/student/delete/${student.StudentID}`, {
+      const response = await fetch(`https://franchiseapi.kictindia.com/student/delete/${student.StudentID}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -256,7 +256,7 @@ const AllStudent = () => {
       <CardContainer>
         {filteredData.map((student, index) => (
           <StudentCard key={index}>
-            <Photo src={`http://localhost:8000/uploads/${student.Image}`} />
+            <Photo src={`https://franchiseapi.kictindia.com/uploads/${student.Image}`} />
             <Name>{student.Name}</Name>
             <TableContainer>
               <InfoTable>

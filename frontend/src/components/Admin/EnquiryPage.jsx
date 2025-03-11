@@ -112,7 +112,7 @@ const EnquiryPage = () => {
             const fetchStaff = async () => {
                 try {
                     console.log(location.state.Id);
-                    const response = await fetch(`http://localhost:8000/enquiry/get/${location.state.Id}`);
+                    const response = await fetch(`https://franchiseapi.kictindia.com/enquiry/get/${location.state.Id}`);
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
                     }

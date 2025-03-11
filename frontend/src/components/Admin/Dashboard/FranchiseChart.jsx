@@ -14,7 +14,7 @@ const FranchiseChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/franchise/all");
+        const response = await axios.get("https://franchiseapi.kictindia.com/franchise/all");
         const formattedData = formatDataForSunburst(response.data);
         setData(formattedData);
       } catch (err) {
@@ -158,7 +158,7 @@ export default FranchiseChart;
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:8000/franchise/all");
+//         const response = await axios.get("https://franchiseapi.kictindia.com/franchise/all");
 //         setFranchiseData(formatDataForChart(response.data));
 //       } catch (err) {
 //         setError("Failed to fetch data");
@@ -292,7 +292,7 @@ export default FranchiseChart;
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:8000/franchise/all");
+//         const response = await axios.get("https://franchiseapi.kictindia.com/franchise/all");
 //         setFranchiseData(formatDataForChart(response.data));
 //       } catch (err) {
 //         setError("Failed to fetch data");

@@ -93,7 +93,7 @@ const AddTeacher = () => {
 
     const fetchFranchises = async () => {
       try {
-        const response = await fetch("http://localhost:8000/franchise/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
         const data = await response.json();
         if (data && Array.isArray(data)) {
           setFranchises(data);
@@ -121,7 +121,7 @@ const AddTeacher = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await fetch("http://localhost:8000/Course/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/Course/all");
         const data = await response.json();
 
         if (data && Array.isArray(data)) {
@@ -199,7 +199,7 @@ const AddTeacher = () => {
     try {
       // Make the API call to add a teacher
       const response = await axios.post(
-        "http://localhost:8000/teacher/add",
+        "https://franchiseapi.kictindia.com/teacher/add",
         formToSend,
         {
           headers: {

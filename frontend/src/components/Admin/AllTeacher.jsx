@@ -111,7 +111,7 @@ const AllTeacher = () => {
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
-        const response = await fetch("http://localhost:8000/teacher/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/teacher/all");
         const data = await response.json();
 
         if (role === "Franchise" && userId) {
@@ -189,7 +189,7 @@ const AllTeacher = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/teacher/delete/${teacherToDelete}`, {
+      const response = await fetch(`https://franchiseapi.kictindia.com/teacher/delete/${teacherToDelete}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -255,7 +255,7 @@ const AllTeacher = () => {
       name: "Image", label: "Profile Image", options: {
         customBodyRender: (value, tableMeta) => {
           const teacher = safeTeachers[tableMeta.rowIndex];
-          return <Image src={`http://localhost:8000/uploads/${teacher?.Image}`} alt="Teacher" />;
+          return <Image src={`https://franchiseapi.kictindia.com/uploads/${teacher?.Image}`} alt="Teacher" />;
         }
       }
     },

@@ -133,7 +133,7 @@ const CreateSyllabus = () => {
     useEffect(() => {
         const fetchFran = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/franchise/all");
+                const response = await axios.get("https://franchiseapi.kictindia.com/franchise/all");
                 // console.log(response.data)
                 const formattedData = response.data.map((franchise) => ({
                     label: franchise.FranchiseName,
@@ -168,7 +168,7 @@ const CreateSyllabus = () => {
 
     const fetchCourseData = async (courseId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/course/get/${courseId}`);
+            const response = await axios.get(`https://franchiseapi.kictindia.com/course/get/${courseId}`);
             setSyllabus(response.data.Syllabus || [{ Title: "", Topics: [""] }]);
             setContent(response.data.Content || [{
                 Title: "",
@@ -216,7 +216,7 @@ const CreateSyllabus = () => {
         console.log(syllabusData)
 
         try {
-            const response = await axios.put(`http://localhost:8000/course/update/${courseId}`, syllabusData);
+            const response = await axios.put(`https://franchiseapi.kictindia.com/course/update/${courseId}`, syllabusData);
             if (response.status === 200) {
                 alert("Syllabus updated successfully!");
                 setSyllabus([{ Title: "", Topics: [""] }]);

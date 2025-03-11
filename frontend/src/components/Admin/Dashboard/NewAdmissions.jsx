@@ -85,7 +85,7 @@ const NewAdmissions = () => {
     console.log(role);
     const fetchStudents = async () => {
       try {
-        const response = await fetch("http://localhost:8000/student/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/student/all");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -126,7 +126,7 @@ const NewAdmissions = () => {
             <Card key={student._id}>
               <PhotoContainer>
                 <Photo
-                  src={`http://localhost:8000/uploads/${student?.Image}`}
+                  src={`https://franchiseapi.kictindia.com/uploads/${student?.Image}`}
                   alt="Student"
                 />
               </PhotoContainer>

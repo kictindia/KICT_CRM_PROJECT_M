@@ -34,7 +34,7 @@ const EditTeacher = () => {
     useEffect(() => {
         const fetchStaff = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/teacher/get/${location.state.Id}`);
+                const response = await fetch(`https://franchiseapi.kictindia.com/teacher/get/${location.state.Id}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
@@ -101,7 +101,7 @@ const EditTeacher = () => {
         console.log("before submit", formDataToSubmit)
         try {
             const response = await axios.put(
-                `http://localhost:8000/teacher/update/${staffId}`,
+                `https://franchiseapi.kictindia.com/teacher/update/${staffId}`,
                 formDataToSubmit,
                 { headers: { 'Content-Type': 'multipart/form-data' } }
             );
@@ -122,7 +122,7 @@ const EditTeacher = () => {
 
         const fetchFranchises = async () => {
             try {
-                const response = await fetch("http://localhost:8000/franchise/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
                 const data = await response.json();
                 if (data && Array.isArray(data)) {
                     setFranchises(data);
@@ -150,7 +150,7 @@ const EditTeacher = () => {
     useEffect(() => {
         const fetchCourse = async () => {
             try {
-                const response = await fetch("http://localhost:8000/Course/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/Course/all");
                 const data = await response.json();
 
                 if (data && Array.isArray(data)) {

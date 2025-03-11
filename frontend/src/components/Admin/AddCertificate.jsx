@@ -152,7 +152,7 @@ const AddCertificate = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/course/get/${courseId}`);
+                const response = await axios.get(`https://franchiseapi.kictindia.com/course/get/${courseId}`);
                 const data = response.data;
                 var temp = data.Syllabus.map((data) => {
                     return { topic: data.Title, totalMark: 0, obtainedTheoryMark: 0, obtainedPracticalMark: 0, grade: '' }
@@ -259,7 +259,7 @@ const AddCertificate = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:8000/certificates/add', certificateData);
+            const response = await axios.post('https://franchiseapi.kictindia.com/certificates/add', certificateData);
             setMessage(response.data.message);
             setStudentId('');
             setCourseId('');

@@ -21,13 +21,13 @@ const ViewCertificatePage = () => {
     const fetchData = async () => {
       try {
         const certificateResponse = await fetch(
-          `http://localhost:8000/certificates/get/${certificateId}`
+          `https://franchiseapi.kictindia.com/certificates/get/${certificateId}`
         );
         const certificateData = await certificateResponse.json();
         setCertificate(certificateData);
 
         const studentResponse = await fetch(
-          `http://localhost:8000/student/get/${certificateData.StudentId}`
+          `https://franchiseapi.kictindia.com/student/get/${certificateData.StudentId}`
         );
         const studentData = await studentResponse.json();
         setStudent(studentData);
@@ -225,7 +225,7 @@ const ViewCertificatePage = () => {
           </Text>
 
           <Text style={{ top: "23.5rem", left: "37.65rem", fontSize: "22px", fontWeight: "700" }}>
-            <img src={`http://localhost:8000/uploads/${student.Image}`} alt="" width={"105px"} height={"125px"} />
+            <img src={`https://franchiseapi.kictindia.com/uploads/${student.Image}`} alt="" width={"105px"} height={"125px"} />
           </Text>
 
           <Text style={{ top: "28rem", left: "11rem", fontSize: "22px", fontWeight: "700" }}>

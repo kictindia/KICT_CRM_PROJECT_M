@@ -143,7 +143,7 @@ const StudentDashboard = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/student/get/${studentId}`);
+        const response = await axios.get(`https://franchiseapi.kictindia.com/student/get/${studentId}`);
 
         // Extract the number of courses from the "Course" array
         const courses = response.data.Course || [];

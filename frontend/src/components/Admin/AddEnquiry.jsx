@@ -40,7 +40,7 @@ const AddEnquiry = () => {
 
         const fetchFranchises = async () => {
             try {
-                const response = await fetch("http://localhost:8000/franchise/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
                 const data = await response.json();
 
                 if (Array.isArray(data)) {
@@ -84,7 +84,7 @@ const AddEnquiry = () => {
     useEffect(() => {
         const fetchBatch = async () => {
             try {
-                const response = await fetch("http://localhost:8000/batch/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/batch/all");
                 const data = await response.json();
 
                 if (data && Array.isArray(data)) {
@@ -110,7 +110,7 @@ const AddEnquiry = () => {
         const fetchCourses = async () => {
             if (enquiryData.FranchiseId) {
                 try {
-                    const response = await fetch(`http://localhost:8000/course/all`);
+                    const response = await fetch(`https://franchiseapi.kictindia.com/course/all`);
                     const data = await response.json();
                     var franData = allFranchises.find(value => value.FranchiseID == enquiryData.FranchiseId);
                     var filterCourse = data.filter(value => value.FranchiseId == "All" || value.FranchiseId == enquiryData.FranchiseId || value.State == franData.State);
@@ -185,7 +185,7 @@ const AddEnquiry = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/enquiry/add', enquiryData);
+            const response = await axios.post('https://franchiseapi.kictindia.com/enquiry/add', enquiryData);
             alert(response.data.message);
             setEnquiryData({
                 Name: '',

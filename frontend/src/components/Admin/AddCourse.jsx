@@ -108,7 +108,7 @@ const AddCourse = () => {
   useEffect(() => {
     const fetchFran = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/franchise/all");
+        const response = await axios.get("https://franchiseapi.kictindia.com/franchise/all");
         const formattedData = response.data.map((franchise) => ({
           label: franchise.FranchiseName,
           value: franchise.FranchiseID,
@@ -134,7 +134,7 @@ const AddCourse = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/course/all");
+      const response = await axios.get("https://franchiseapi.kictindia.com/course/all");
       if (response.status === 200) {
         setCourses(response.data);
       }
@@ -168,7 +168,7 @@ const AddCourse = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:8000/course/add", courseData);
+      const response = await axios.post("https://franchiseapi.kictindia.com/course/add", courseData);
       if (response.status === 201) {
         setSnackbarMessage("Course added successfully!"); // Set success message
         setOpenSnackbar(true); // Open the Snackbar

@@ -183,7 +183,7 @@ const AddFranchise = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/franchise/add",
+        "https://franchiseapi.kictindia.com/franchise/add",
         formToSend,
         {
           headers: {

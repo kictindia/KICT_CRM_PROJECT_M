@@ -130,12 +130,12 @@ const VerificationPage = () => {
     const fetchData = async () => {
       try {
         const certificateResponse = await axios.get(
-          `http://localhost:8000/certificates/get/${certificateId}`
+          `https://franchiseapi.kictindia.com/certificates/get/${certificateId}`
         );
         if (certificateResponse.data) {
           setCertificate(certificateResponse.data);
           const studentResponse = await axios.get(
-            `http://localhost:8000/student/get/${certificateResponse.data.StudentId}`
+            `https://franchiseapi.kictindia.com/student/get/${certificateResponse.data.StudentId}`
           );
           if (studentResponse.data) {
             setStudent(studentResponse.data);

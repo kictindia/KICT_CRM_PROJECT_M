@@ -93,7 +93,7 @@ const ViewDetails = () => {
     useEffect(() => {
         const fetchCourseDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/course/get/${courseId}`);
+                const response = await axios.get(`https://franchiseapi.kictindia.com/course/get/${courseId}`);
                 setCourseDetails(response.data);
             } catch (error) {
                 console.error('Error fetching course details:', error);

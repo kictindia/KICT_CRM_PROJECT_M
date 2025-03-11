@@ -26,7 +26,7 @@ const EditFranchise = () => {
     useEffect(() => {
         const fetchFranchise = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/franchise/get/${location.state.FranchiseID}`);
+                const response = await fetch(`https://franchiseapi.kictindia.com/franchise/get/${location.state.FranchiseID}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
@@ -79,7 +79,7 @@ const EditFranchise = () => {
     
         try {
             const response = await axios.put(
-                `http://localhost:8000/franchise/update/${franchiseId}`,
+                `https://franchiseapi.kictindia.com/franchise/update/${franchiseId}`,
                 formDataToSubmit,
                 { headers: { 'Content-Type': 'multipart/form-data' } }
             );
@@ -157,7 +157,7 @@ const EditFranchise = () => {
                             {formData.UPICode && (
                                 <div style={{ marginTop: "10px" }}>
                                     <img 
-                                        src={`http://localhost:8000/uploads/${formData.UPICode}`} 
+                                        src={`https://franchiseapi.kictindia.com/uploads/${formData.UPICode}`} 
                                         alt="UPI Code" 
                                         style={{ width: '100px', height: '100px', objectFit: 'cover' }} 
                                     />

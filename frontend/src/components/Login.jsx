@@ -31,7 +31,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/user/login", {
+      const response = await fetch("https://franchiseapi.kictindia.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Login = () => {
         // Fetch and store specific data for each role (Student, Teacher, Admin, Franchise)
         if (data.Data.Role === "Student" && !localStorage.getItem("StudentData")) {
           const studentId = localStorage.getItem("Id");
-          const studentResponse = await fetch(`http://localhost:8000/student/get/${studentId}`);
+          const studentResponse = await fetch(`https://franchiseapi.kictindia.com/student/get/${studentId}`);
           const studentData = await studentResponse.json();
           if (studentResponse.ok) {
             localStorage.setItem("StudentData", JSON.stringify(studentData));
@@ -69,7 +69,7 @@ const Login = () => {
           }
         } else if (data.Data.Role === "Teacher" && !localStorage.getItem("TeacherData")) {
           const teacherId = localStorage.getItem("Id");
-          const teacherResponse = await fetch(`http://localhost:8000/teacher/get/${teacherId}`);
+          const teacherResponse = await fetch(`https://franchiseapi.kictindia.com/teacher/get/${teacherId}`);
           const teacherData = await teacherResponse.json();
           console.log(teacherData)
           if (teacherResponse.ok) {
@@ -79,7 +79,7 @@ const Login = () => {
           }
         } else if (data.Data.Role === "Admin" && !localStorage.getItem("AdminData")) {
           const adminId = localStorage.getItem("Id");
-          const adminResponse = await fetch(`http://localhost:8000/admin/get/${adminId}`);
+          const adminResponse = await fetch(`https://franchiseapi.kictindia.com/admin/get/${adminId}`);
           const adminData = await adminResponse.json();
           if (adminResponse.ok) {
             localStorage.setItem("AdminData", JSON.stringify(adminData));
@@ -88,7 +88,7 @@ const Login = () => {
           }
         } else if (data.Data.Role === "Franchise" && !localStorage.getItem("FranchiseData")) {
           const franchiseId = localStorage.getItem("Id");
-          const franchiseResponse = await fetch(`http://localhost:8000/franchise/get/${franchiseId}`);
+          const franchiseResponse = await fetch(`https://franchiseapi.kictindia.com/franchise/get/${franchiseId}`);
           const franchiseData = await franchiseResponse.json();
           if (franchiseResponse.ok) {
             localStorage.setItem("FranchiseData", JSON.stringify(franchiseData));

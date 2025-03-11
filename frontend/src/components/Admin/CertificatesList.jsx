@@ -95,7 +95,7 @@ const CertificatesList = () => {
   useEffect(() => {
     const fetchCertificates = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/certificates/all");
+        const response = await axios.get("https://franchiseapi.kictindia.com/certificates/all");
         setCertificates(response.data);
       } catch (err) {
         setError("Error fetching certificates");
@@ -115,7 +115,7 @@ const CertificatesList = () => {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/certificates/delete/${certificateToDelete}`);
+      await axios.delete(`https://franchiseapi.kictindia.com/certificates/delete/${certificateToDelete}`);
       setCertificates(certificates.filter((cert) => cert.CertificateId !== certificateToDelete));
       setShowModal(false);
       toast.success("Certificate deleted successfully!");

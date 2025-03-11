@@ -72,7 +72,7 @@ const FeeChart = () => {
   useEffect(() => {
     const fetchFeeData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/fee/all");
+        const response = await axios.get("https://franchiseapi.kictindia.com/fee/all");
 
         // Retrieve the FranchiseId from localStorage
         const franchiseId = localStorage.getItem("Id");

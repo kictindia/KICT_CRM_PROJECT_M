@@ -44,7 +44,7 @@ const AllFee = () => {
       try {
         const role = localStorage.getItem("Role");
 
-        const response = await fetch("http://localhost:8000/fee/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/fee/all");
         const data = await response.json();
 
         if (response.ok) {

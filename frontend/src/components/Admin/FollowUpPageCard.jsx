@@ -59,7 +59,7 @@ const FollowUpPage = ({ Id }) => {
     console.log(Id)
     setLoading(true)
     // Fetching data from the API
-    axios.get(`http://localhost:8000/followups/getById/${Id}`)  // Replace with your actual API URL
+    axios.get(`https://franchiseapi.kictindia.com/followups/getById/${Id}`)  // Replace with your actual API URL
       .then(response => {
         setFollowUpData(response.data);
       })

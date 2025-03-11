@@ -74,7 +74,7 @@ const RecentTransactions = () => {
 
   const fetchTransactions = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/fee/all");
+      const response = await axios.get("https://franchiseapi.kictindia.com/fee/all");
       processTransactions(response.data);
     } catch (err) {
       setError("Failed to fetch data");

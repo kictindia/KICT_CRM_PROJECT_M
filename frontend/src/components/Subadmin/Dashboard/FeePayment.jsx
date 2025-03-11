@@ -20,7 +20,7 @@ const FeePayment = () => {
   // Fetch data from the backend API
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/fee/all");
+      const response = await axios.get("https://franchiseapi.kictindia.com/fee/all");
       processPaymentData(response.data);
     } catch (err) {
       setError("Failed to fetch data");

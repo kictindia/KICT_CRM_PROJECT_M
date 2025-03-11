@@ -209,7 +209,7 @@ const EditCertificate = () => {
         };
 
         try {
-            const response = await axios.put(`http://localhost:8000/certificates/update/${certificateData._id}`, updatedCertificateData);
+            const response = await axios.put(`https://franchiseapi.kictindia.com/certificates/update/${certificateData._id}`, updatedCertificateData);
             setMessage(response.data.message);
             navigate('/admin/list-certificate'); // Redirect after successful update
         } catch (err) {

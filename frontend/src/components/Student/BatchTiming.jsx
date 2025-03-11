@@ -50,7 +50,7 @@ const BatchTiming = () => {
     useEffect(() => {
         const fetchStudentData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/student/get/${studentId}`);
+                const response = await axios.get(`https://franchiseapi.kictindia.com/student/get/${studentId}`);
                 setStudentData(response.data); // Store student data
             } catch (error) {
                 console.error('Error fetching student data:', error);

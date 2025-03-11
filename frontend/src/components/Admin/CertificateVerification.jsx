@@ -109,7 +109,7 @@ const CertificateVerification = () => {
     useEffect(() => {
         const fetchCertificates = async () => {
             try {
-                const response = await fetch("http://localhost:8000/certificates/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/certificates/all");
                 const data = await response.json();
 
                 if (role === "Franchise" && userId) {
@@ -129,7 +129,7 @@ const CertificateVerification = () => {
 
     const handleToggleVerification = async (certificateId, currentStatus) => {
         try {
-            const response = await fetch(`http://localhost:8000/certificates/${certificateId}/admin-verified`, {
+            const response = await fetch(`https://franchiseapi.kictindia.com/certificates/${certificateId}/admin-verified`, {
                 method: "PATCH",
                 body: JSON.stringify({
                     AdminVerified: !currentStatus,
@@ -159,7 +159,7 @@ const CertificateVerification = () => {
 
     const confirmDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/certificates/delete/${certificateToDelete}`, {
+            const response = await fetch(`https://franchiseapi.kictindia.com/certificates/delete/${certificateToDelete}`, {
                 method: "DELETE",
             });
             if (response.ok) {

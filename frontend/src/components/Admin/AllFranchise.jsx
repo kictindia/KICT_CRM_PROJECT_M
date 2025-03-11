@@ -31,7 +31,7 @@ const FranchiseTable = () => {
   // Fetch data from the backend
   useEffect(() => {
     axios
-      .get("http://localhost:8000/franchise/all")
+      .get("https://franchiseapi.kictindia.com/franchise/all")
       .then((response) => {
         setFranchises(response.data);
         setLoading(false);
@@ -75,7 +75,7 @@ const FranchiseTable = () => {
   // Confirm deletion
   const confirmDelete = () => {
     axios
-      .delete(`http://localhost:8000/franchise/delete/${selectedFranchise.FranchiseID}`)
+      .delete(`https://franchiseapi.kictindia.com/franchise/delete/${selectedFranchise.FranchiseID}`)
       .then(() => {
         setFranchises(franchises.filter((f) => f.FranchiseID !== selectedFranchise.FranchiseID));
         setOpenDeleteDialog(false);

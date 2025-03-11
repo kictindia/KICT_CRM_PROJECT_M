@@ -159,7 +159,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchTotalStudents = async () => {
       try {
-        const response = await fetch("http://localhost:8000/student/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/student/all");
         const data = await response.json();
         if (Array.isArray(data)) {
           setTotalStudents(data.length);
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
 
     const fetchTotalFranchise = async () => {
       try {
-        const response = await fetch("http://localhost:8000/franchise/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
         const data = await response.json();
         if (Array.isArray(data)) {
           setTotalFranchise(data.length);
@@ -191,7 +191,7 @@ const AdminDashboard = () => {
 
     const fetchTotalTeacher = async () => {
       try {
-        const response = await fetch("http://localhost:8000/teacher/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/teacher/all");
         const data = await response.json();
         if (Array.isArray(data)) {
           setTotalTeacher(data.length);
@@ -207,7 +207,7 @@ const AdminDashboard = () => {
 
     const fetchTotalCourse = async () => {
       try {
-        const response = await fetch("http://localhost:8000/course/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/course/all");
         const data = await response.json();
         if (Array.isArray(data)) {
           setTotalCourse(data.length);

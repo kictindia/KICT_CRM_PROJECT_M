@@ -316,7 +316,7 @@ const RemoveButton = styled.button`
 
 const AdmissionForm = () => {
   const generateTemporaryRegistrationNumber = async () => {
-    const response = await fetch(`http://localhost:8000/student/id`);
+    const response = await fetch(`https://franchiseapi.kictindia.com/student/id`);
     const data = await response.json();
     console.log(data.Count + 1)
     return data.Count;
@@ -386,7 +386,7 @@ const AdmissionForm = () => {
 
     const fetchFranchises = async () => {
       try {
-        const response = await fetch("http://localhost:8000/franchise/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
         const data = await response.json();
         setAllFranchises(data);
         if (temp == "Franchise") {
@@ -423,7 +423,7 @@ const AdmissionForm = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/course/all`);
+        const response = await fetch(`https://franchiseapi.kictindia.com/course/all`);
         const data = await response.json();
         var franData = allFranchises.find(
           (value) => value.FranchiseID == formData.FranchiseId
@@ -450,7 +450,7 @@ const AdmissionForm = () => {
   useEffect(() => {
     const fetchBatch = async () => {
       try {
-        const response = await fetch("http://localhost:8000/batch/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/batch/all");
         const data = await response.json();
 
         if (data && Array.isArray(data)) {
@@ -683,7 +683,7 @@ const AdmissionForm = () => {
     console.log(formData);
     try {
       const response = await axios.post(
-        "http://localhost:8000/pending-student/add",
+        "https://franchiseapi.kictindia.com/pending-student/add",
         data,
         {
           headers: {

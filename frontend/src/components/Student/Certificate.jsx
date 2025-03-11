@@ -323,7 +323,7 @@ const Certificate = () => {
     useEffect(() => {
         const fetchCertificates = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/certificates/all');
+                const response = await axios.get('https://franchiseapi.kictindia.com/certificates/all');
                 setAllCertificates(response.data); // Set the fetched data to the state
                 setLoading(false);
             } catch (err) {

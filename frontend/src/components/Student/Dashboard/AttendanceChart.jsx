@@ -106,7 +106,7 @@ const AttendanceChart = () => {
     useEffect(() => {
         const fetchAttendanceData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/student-attendance/all");
+                const response = await axios.get("https://franchiseapi.kictindia.com/student-attendance/all");
 
                 // Filter attendance data for the logged-in student
                 const studentAttendanceData = response.data.map(batch => {

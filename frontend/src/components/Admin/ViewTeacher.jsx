@@ -124,7 +124,7 @@ const ViewTeacher = () => {
     if (location.state && location.state.Id) {
       const fetchStaff = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/teacher/get/${location.state.Id}`);
+          const response = await fetch(`https://franchiseapi.kictindia.com/teacher/get/${location.state.Id}`);
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
@@ -153,7 +153,7 @@ const ViewTeacher = () => {
       <Container>
         <AdmissionLetterContainer>
           <PhotoContainer>
-            <Photo src={`http://localhost:8000/uploads/${staff?.Image}`} alt="Staff" />
+            <Photo src={`https://franchiseapi.kictindia.com/uploads/${staff?.Image}`} alt="Staff" />
           </PhotoContainer>
 
           <Section>

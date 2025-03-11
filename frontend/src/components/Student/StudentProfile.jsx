@@ -123,7 +123,7 @@ const StudentProfile = () => {
 
       if (studentId) {
         try {
-          const response = await fetch(`http://localhost:8000/student/get/${studentId}`);
+          const response = await fetch(`https://franchiseapi.kictindia.com/student/get/${studentId}`);
           if (!response.ok) {
             throw new Error('Student not found');
           }
@@ -150,7 +150,7 @@ const StudentProfile = () => {
         <AdmissionLetterContainer>
           <PhotoContainer>
             {/* Assuming you have a field `student?.Image` for the student's photo */}
-            <Photo src={`http://localhost:8000/uploads/${student?.Image}`} alt="Student" />
+            <Photo src={`https://franchiseapi.kictindia.com/uploads/${student?.Image}`} alt="Student" />
           </PhotoContainer>
 
           {/* Student Details */}

@@ -96,7 +96,7 @@ const BatchTable = () => {
 
   useEffect(() => {
     // Fetch data from the API
-    axios.get('http://localhost:8000/batch/all')
+    axios.get('https://franchiseapi.kictindia.com/batch/all')
       .then(response => {
         setData(response.data);
         setLoading(false);

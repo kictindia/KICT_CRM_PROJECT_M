@@ -89,7 +89,7 @@ const AbsentStudentList = () => {
                 console.log("Fetching attendance data...");
 
                 // Fetching attendance data
-                const attendanceResponse = await fetch("http://localhost:8000/student-attendance/all");
+                const attendanceResponse = await fetch("https://franchiseapi.kictindia.com/student-attendance/all");
                 if (!attendanceResponse.ok) {
                     throw new Error("Failed to fetch attendance data");
                 }
@@ -120,7 +120,7 @@ const AbsentStudentList = () => {
                     absentStudentsList.map(async (student) => {
                         try {
                             const studentResponse = await fetch(
-                                `http://localhost:8000/student/get/${student.studentId}`
+                                `https://franchiseapi.kictindia.com/student/get/${student.studentId}`
                             );
                             if (!studentResponse.ok) {
                                 throw new Error(`Failed to fetch image for student ID ${student.studentId}`);
@@ -181,7 +181,7 @@ const AbsentStudentList = () => {
                             <tr key={index}>
                                 <BodyCell>
                                     <Photo
-                                        src={`http://localhost:8000/uploads/${student.image}`}
+                                        src={`https://franchiseapi.kictindia.com/uploads/${student.image}`}
                                         alt="Student"
                                     />
                                 </BodyCell>

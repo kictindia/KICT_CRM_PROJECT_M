@@ -22,7 +22,7 @@ const Student = ({ setStudentCount }) => {
         }
 
         // Fetch teacher data based on teacherId
-        const teacherResponse = await fetch(`http://localhost:8000/teacher/all`);
+        const teacherResponse = await fetch(`https://franchiseapi.kictindia.com/teacher/all`);
         if (!teacherResponse.ok) {
           throw new Error("Error fetching teacher data");
         }
@@ -41,7 +41,7 @@ const Student = ({ setStudentCount }) => {
         setTeacher(loggedInTeacher);
 
         // Fetch student data
-        const studentResponse = await fetch(`http://localhost:8000/student/all`);
+        const studentResponse = await fetch(`https://franchiseapi.kictindia.com/student/all`);
         if (!studentResponse.ok) {
           throw new Error("Error fetching student data");
         }
@@ -122,7 +122,7 @@ const Student = ({ setStudentCount }) => {
         sort: false,
         customBodyRender: (value) => (
           <img
-            src={`http://localhost:8000/uploads/${value}`}
+            src={`https://franchiseapi.kictindia.com/uploads/${value}`}
             alt="Student"
             style={{
               width: "50px",

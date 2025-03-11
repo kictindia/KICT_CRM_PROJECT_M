@@ -285,7 +285,7 @@ const EnrollCourses = () => {
       }
 
       // Fetch all course-franchise data
-      const response = await fetch(`http://localhost:8000/course-franchise/get/${franchiseId}`);
+      const response = await fetch(`https://franchiseapi.kictindia.com/course-franchise/get/${franchiseId}`);
       const data = await response.json();
 
       // Filter courses by FranchiseId
@@ -366,7 +366,7 @@ const EnrollCourses = () => {
 
       var fran = localStorage.getItem("Id");
       // Update the course data on the backend
-      const response = await fetch(`http://localhost:8000/course-franchise/update/${fran}/${CourseId}`, {
+      const response = await fetch(`https://franchiseapi.kictindia.com/course-franchise/update/${fran}/${CourseId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

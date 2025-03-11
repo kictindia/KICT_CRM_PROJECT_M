@@ -113,7 +113,7 @@ const TeacherDashboard = () => {
 
         // Fetch teacher data based on teacherId
         const teacherResponse = await fetch(
-          `http://localhost:8000/teacher/get/${teacherId}`
+          `https://franchiseapi.kictindia.com/teacher/get/${teacherId}`
         );
         if (!teacherResponse.ok) {
           throw new Error("Error fetching teacher data");
@@ -122,7 +122,7 @@ const TeacherDashboard = () => {
         setTeacher(teacherData);
 
         // Fetch batches related to this teacher's franchise
-        const batchResponse = await fetch("http://localhost:8000/batch/all");
+        const batchResponse = await fetch("https://franchiseapi.kictindia.com/batch/all");
         if (!batchResponse.ok) {
           throw new Error("Error fetching batch data");
         }

@@ -65,7 +65,7 @@ const AddBatch = () => {
     // Fetch all batches on mount
     const fetchBatches = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/batch/all");
+            const response = await axios.get("https://franchiseapi.kictindia.com/batch/all");
             if (response.status === 200) {
                 setBatches(response.data); // Set the batches state to the fetched data
                 console.log(response.data); // Set the batches state to the fetched data
@@ -82,7 +82,7 @@ const AddBatch = () => {
     useEffect(() => {
         const fetchFranchises = async () => {
             try {
-                const response = await fetch("http://localhost:8000/franchise/all");
+                const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
                 const data = await response.json();
 
                 if (data && Array.isArray(data)) {
@@ -120,11 +120,11 @@ const AddBatch = () => {
                 const updatedBatches = batches.map(batch => batch._id === editingBatchId ? { ...batch, ...batchData } : batch);
                 setBatches(updatedBatches);
 
-                const response = await axios.put(`http://localhost:8000/batch/update/${editingBatchId}`, batchData);
+                const response = await axios.put(`https://franchiseapi.kictindia.com/batch/update/${editingBatchId}`, batchData);
                 toast.success('Batch updated successfully!');
             } else {
                 // Optimistic update: Add the new batch to the UI immediately
-                const response = await axios.post('http://localhost:8000/batch/add', batchData);
+                const response = await axios.post('https://franchiseapi.kictindia.com/batch/add', batchData);
                 toast.success('Batch added successfully!');
                 setBatches(prevBatches => [...prevBatches, response.data]); // Add new batch to local state without overwriting
             }
@@ -158,7 +158,7 @@ const AddBatch = () => {
         toast.success('Batch deleted successfully');
 
         try {
-            await axios.delete(`http://localhost:8000/batch/delete/${id}`);
+            await axios.delete(`https://franchiseapi.kictindia.com/batch/delete/${id}`);
         } catch (err) {
             toast.error('Error deleting batch');
             // Revert state if the deletion failed

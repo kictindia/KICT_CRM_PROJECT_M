@@ -94,7 +94,7 @@ const Courses = () => {
         }
 
         // Fetch teacher data based on teacherId
-        const teacherResponse = await fetch(`http://localhost:8000/teacher/all`);
+        const teacherResponse = await fetch(`https://franchiseapi.kictindia.com/teacher/all`);
         if (!teacherResponse.ok) {
           throw new Error("Error fetching teacher data");
         }

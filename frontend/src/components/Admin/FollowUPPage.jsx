@@ -324,7 +324,7 @@ const FollowUpPage = () => {
 
   const fetchFranchises = async (temp) => {
     try {
-      const response = await fetch("http://localhost:8000/followups/all");
+      const response = await fetch("https://franchiseapi.kictindia.com/followups/all");
       const data = await response.json();
       console.log(data)
       if (temp == "Franchise") {
@@ -394,7 +394,7 @@ const FollowUpPage = () => {
   const handleFollowUpSubmit = async () => {
     try {
       // Send follow-up data to your backend to save it in the FollowUp model
-      await axios.post("http://localhost:8000/followups/add", followUpData);
+      await axios.post("https://franchiseapi.kictindia.com/followups/add", followUpData);
       alert("Follow-up saved successfully.");
       fetchFranchises(role)
       setShowModal(false);
@@ -407,7 +407,7 @@ const FollowUpPage = () => {
   const handleDelete = async (id) => {
     try {
       // Make the DELETE request to the API with the ID in the URL
-      const response = await axios.delete(`http://localhost:8000/followups/delete/${id}`);
+      const response = await axios.delete(`https://franchiseapi.kictindia.com/followups/delete/${id}`);
 
       if (response.status === 200) {
         // If successful, filter the record out of the data state

@@ -29,7 +29,7 @@ const AttendancePage = () => {
 
         // Fetch teacher attendance data
         try {
-            const response = await axios.get(`http://localhost:8000/staff-attendance/all`);
+            const response = await axios.get(`https://franchiseapi.kictindia.com/staff-attendance/all`);
             const staffData = response.data;
 
             // Filter staff attendance by selected date and ensure the Attendance array exists
@@ -69,7 +69,7 @@ const AttendancePage = () => {
 
         // Fetch student attendance data
         try {
-            const response = await axios.get(`http://localhost:8000/student-attendance/all`);
+            const response = await axios.get(`https://franchiseapi.kictindia.com/student-attendance/all`);
             const studentData = response.data;
 
             // Filter student attendance by selected date and ensure the Attendance array exists

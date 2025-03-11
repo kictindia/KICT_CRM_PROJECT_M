@@ -214,7 +214,7 @@ const PendingStudent = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await fetch("http://localhost:8000/pending-student/all");
+      const response = await fetch("https://franchiseapi.kictindia.com/pending-student/all");
       const data = await response.json();
       setStudents(data.reverse());
     } catch (error) {
@@ -228,7 +228,7 @@ const PendingStudent = () => {
   const openEditPage = async (student) => {
     console.log(student);
     try {
-      const response = await axios.post("http://localhost:8000/student/add-from-pending", student);
+      const response = await axios.post("https://franchiseapi.kictindia.com/student/add-from-pending", student);
       console.log(response.data)
       if (response.status === 201) {
         alert("Student Approved Successfully!");

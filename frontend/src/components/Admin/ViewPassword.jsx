@@ -9,7 +9,7 @@ const ViewPassword = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/user/all");
+        const response = await fetch("https://franchiseapi.kictindia.com/user/all");
         const result = await response.json();
         setData(result.reverse()); // Assuming you want to display the data in reverse order
       } catch (error) {

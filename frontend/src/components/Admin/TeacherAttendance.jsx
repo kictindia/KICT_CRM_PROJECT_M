@@ -94,7 +94,7 @@ const TeacherAttendance = () => {
     useEffect(() => {
         const fetchFranchiseNames = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/franchise/all");
+                const response = await axios.get("https://franchiseapi.kictindia.com/franchise/all");
                 var temp = localStorage.getItem("Role");
                 setRole(temp)
                 if (temp === "Franchise") {
@@ -117,7 +117,7 @@ const TeacherAttendance = () => {
     useEffect(() => {
         const fetchStaff = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/teacher/all");
+                const response = await axios.get("https://franchiseapi.kictindia.com/teacher/all");
                 setAllStaff(response.data);
                 console.log(response.data) // Store all staff data
             } catch (error) {
@@ -169,7 +169,7 @@ const TeacherAttendance = () => {
         const fetchExistingData = async () => {
             if (selectedDate && formData.FranchiseId) {
                 try {
-                    const response = await axios.post("http://localhost:8000/staff-attendance/get/franchise-date", {
+                    const response = await axios.post("https://franchiseapi.kictindia.com/staff-attendance/get/franchise-date", {
                         franchiseId: formData.FranchiseId,
                         date: selectedDate
                     });
@@ -236,7 +236,7 @@ const TeacherAttendance = () => {
         console.log(attendanceToSubmit)
 
         try {
-            const response = await axios.put("http://localhost:8000/staff-attendance/update", attendanceToSubmit);
+            const response = await axios.put("https://franchiseapi.kictindia.com/staff-attendance/update", attendanceToSubmit);
             console.log("Attendance submitted:", response.data);
             setSelectedDate("");
             setFormData({ FranchiseName: "", FranchiseId: "" });

@@ -149,7 +149,7 @@ const PaymentPage = () => {
     const fetchFeeDetails = async () => {
       console.log(location.state)
       try {
-        const response = await fetch(`http://localhost:8000/fee/get/${StudentId}/${CourseId}`);
+        const response = await fetch(`https://franchiseapi.kictindia.com/fee/get/${StudentId}/${CourseId}`);
         const data = await response.json();
         setFee(data);
       } catch (err) {
@@ -183,7 +183,7 @@ const PaymentPage = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:8000/fee/add-installment/${StudentId}/${CourseId}`, {
+      const response = await fetch(`https://franchiseapi.kictindia.com/fee/add-installment/${StudentId}/${CourseId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

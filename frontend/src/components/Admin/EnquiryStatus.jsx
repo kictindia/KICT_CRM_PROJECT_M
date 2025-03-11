@@ -312,7 +312,7 @@ const AllEnquiry = () => {
 
   const fetchFranchises = async (role) => {
     try {
-      const response = await fetch("http://localhost:8000/enquiry/all");
+      const response = await fetch("https://franchiseapi.kictindia.com/enquiry/all");
       const data = await response.json();
 
       if (role === "Admin") {
@@ -329,7 +329,7 @@ const AllEnquiry = () => {
 
   const addStudent = async (data) => {
     try {
-      const response = await axios.post('http://localhost:8000/enquiry/add-student', data);
+      const response = await axios.post('https://franchiseapi.kictindia.com/enquiry/add-student', data);
       alert("Student Added Successfully.");
       fetchFranchises(role);
     } catch (err) {
@@ -339,7 +339,7 @@ const AllEnquiry = () => {
 
   const handleFollowUpSubmit = async () => {
     try {
-      await axios.post("http://localhost:8000/followups/add", followUpData);
+      await axios.post("https://franchiseapi.kictindia.com/followups/add", followUpData);
       alert("Follow-up saved successfully.");
       setShowModal(false);
       fetchFranchises();
@@ -377,7 +377,7 @@ const AllEnquiry = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:8000/enquiry/delete/${deleteId}`);
+      const response = await axios.delete(`https://franchiseapi.kictindia.com/enquiry/delete/${deleteId}`);
       if (response.status === 200) {
         setFranchises((prevFranchises) => prevFranchises.filter(franchise => franchise.EnquiryNo !== deleteId));
         alert('Follow-up deleted successfully.');

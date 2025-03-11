@@ -108,13 +108,13 @@ const StudentCourse = () => {
         const fetchStudentData = async () => {
             try {
                 // Fetch student data using studentId
-                const studentResponse = await axios.get(`http://localhost:8000/student/get/${studentId}`);
+                const studentResponse = await axios.get(`https://franchiseapi.kictindia.com/student/get/${studentId}`);
                 setStudentData(studentResponse.data);
 
                 // Fetch course details for each course enrolled
                 const enrolledCourses = studentResponse.data.Course || [];
                 const courseRequests = enrolledCourses.map(course =>
-                    axios.get(`http://localhost:8000/course/get/${course.CourseId}`)
+                    axios.get(`https://franchiseapi.kictindia.com/course/get/${course.CourseId}`)
                 );
 
                 // Wait for all course details to be fetched
