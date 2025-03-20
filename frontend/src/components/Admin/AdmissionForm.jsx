@@ -315,16 +315,8 @@ const RemoveButton = styled.button`
 `;
 
 const AdmissionForm = () => {
-  const generateTemporaryRegistrationNumber = async () => {
-    const response = await fetch(`https://franchiseapi.kictindia.com/student/id`);
-    const data = await response.json();
-    console.log(data.Count + 1)
-    return data.Count;
-    // const randomNum = Math.floor(100000 + Math.random() * 900000);
-    // return "KICT-" + randomNum;
-  };
   const [formData, setFormData] = useState({
-    RegistrationNumber: generateTemporaryRegistrationNumber(),
+    RegistrationNumber:"",
     AadhaarNumber: "",
     DateofAdmission: "",
     Branch: "",
@@ -369,21 +361,30 @@ const AdmissionForm = () => {
   const [batches, setBatches] = useState([]);
   const [slots, setSlots] = useState([]);
   const [defaultSlot, setDefaultSlot] = useState([]);
-
+  
   const countryOptions = countries.map((country) => ({
     value: country.dial_code,
     label: `${country.name} (${country.dial_code})`,
   }));
-
+  
   const countryName = countries.map((country) => ({
     value: country.name,
     label: country.name,
   }));
-
-  useEffect(() => {
-    generateTemporaryRegistrationNumber
+  
+  const generateTemporaryRegistrationNumber = async () => {
+    const response = await fetch(`https://franchiseapi.kictindia.com/student/id`);
+    const data = await response.json();
+    // console.log(data.Count + 1);
+    // return data.Count;
+    // const randomNum = Math.floor(100000 + Math.random() * 900000);
+    // return "KICT-" + randomNum;
+    setFormData({...formData, RegistrationNumber: `KICT-${data.Count + 1}`});
+  };
+  useEffect(async () => {
+    generateTemporaryRegistrationNumber();
     var temp = localStorage.getItem("Role");
-
+    
     const fetchFranchises = async () => {
       try {
         const response = await fetch("https://franchiseapi.kictindia.com/franchise/all");
