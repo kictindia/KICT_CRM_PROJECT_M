@@ -26,7 +26,7 @@ const StudentCourseTable = () => {
 
     // Fetch student data
     useEffect(() => {
-        axios.get('https://franchiseapi.kictindia.com/student/all')
+        axios.get('http://localhost:8000/student/all')
             .then(response => {
                 setStudents(response.data);
             })
@@ -37,7 +37,7 @@ const StudentCourseTable = () => {
 
     // Fetch certificates data
     useEffect(() => {
-        axios.get('https://franchiseapi.kictindia.com/certificates/all')
+        axios.get('http://localhost:8000/certificates/all')
             .then(response => {
                 setCertificateList(response.data);
             })

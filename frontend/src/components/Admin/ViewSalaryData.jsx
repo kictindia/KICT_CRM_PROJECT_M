@@ -94,7 +94,7 @@ const AttendanceTable = () => {
         var monthNum = String(monthNames.indexOf(location.state.Month) + 1)
         try {
             const response = await axios.post(
-                "https://franchiseapi.kictindia.com/staff-attendance/teacher-attendance",
+                "http://localhost:8000/staff-attendance/teacher-attendance",
                 {
                     teacherId: location.state.TeacherId, // Replace with dynamic ID
                     month: monthNum, // Replace with dynamic month
@@ -140,7 +140,7 @@ const AttendanceTable = () => {
         // var monthNum = String(monthNames.indexOf(location.state.Month) + 1)
         try {
             const response = await axios.post(
-                "https://franchiseapi.kictindia.com/salary/pay",
+                "http://localhost:8000/salary/pay",
                 {
                     teacherId: location.state.TeacherId, // Replace with dynamic ID
                     month: location.state.Month, // Replace with dynamic month
